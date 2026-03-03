@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Cabinet Grotesk ─── */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* ─── General Sans ─── */
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* ── Orange-Yellow-Black Theme ── */
+    --background: 0.97 0.01 85;
+    --foreground: 0.12 0.01 20;
+
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.01 20;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.01 20;
+
+    /* Primary: vibrant orange */
+    --primary: 0.65 0.22 40;
+    --primary-foreground: 1 0 0;
+
+    /* Secondary: yellow-gold */
+    --secondary: 0.82 0.17 85;
+    --secondary-foreground: 0.12 0.01 20;
+
+    --muted: 0.94 0.02 70;
+    --muted-foreground: 0.45 0.03 40;
+
+    --accent: 0.82 0.17 85;
+    --accent-foreground: 0.12 0.01 20;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.03 60;
+    --input: 0.88 0.03 60;
+    --ring: 0.65 0.22 40;
+
+    /* Dark surface */
+    --dark-bg: 0.12 0.01 20;
+    --dark-surface: 0.18 0.015 25;
+
+    /* Chart colors */
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.82 0.17 85;
+    --chart-3: 0.55 0.18 45;
+    --chart-4: 0.75 0.15 70;
+    --chart-5: 0.40 0.12 30;
+
+    --sidebar: 0.12 0.01 20;
+    --sidebar-foreground: 0.97 0.01 85;
+    --sidebar-primary: 0.65 0.22 40;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.82 0.17 85;
+    --sidebar-accent-foreground: 0.12 0.01 20;
+    --sidebar-border: 0.22 0.02 25;
+    --sidebar-ring: 0.65 0.22 40;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .gradient-orange-yellow {
+    background: linear-gradient(135deg, oklch(0.65 0.22 40), oklch(0.82 0.17 85));
+  }
+  .gradient-dark-orange {
+    background: linear-gradient(135deg, oklch(0.12 0.01 20), oklch(0.20 0.06 35));
+  }
+  .text-gradient-fire {
+    background: linear-gradient(90deg, oklch(0.65 0.22 40), oklch(0.82 0.17 85));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px oklch(0.65 0.22 40 / 0.25);
+  }
+  .nav-link-hover {
+    position: relative;
+  }
+  .nav-link-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: oklch(0.65 0.22 40);
+    transition: width 0.25s ease;
+  }
+  .nav-link-hover:hover::after {
+    width: 100%;
+  }
+  .section-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, oklch(0.65 0.22 40), oklch(0.82 0.17 85));
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+  .section-heading-center::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, oklch(0.65 0.22 40), oklch(0.82 0.17 85));
+    margin: 8px auto 0;
+    border-radius: 2px;
+  }
+}
